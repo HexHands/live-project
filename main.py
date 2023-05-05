@@ -9,7 +9,7 @@ print(project.views)
 print(project.loves)
 print(project.favorites)
 
-project.set_title(f"❤️{project.loves}  | ⭐{project.favorites} | ◉{project.views}")
+project.set_title(f"❤️ {project.loves}  | ⭐ {project.favorites} | ◉ {project.views}")
 
 project.set_instructions(f"""This project updates every 5-10 minutes!
 
