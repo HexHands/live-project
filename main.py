@@ -1,11 +1,9 @@
 import requests
 import base64
-import smtplib
 from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
-import os
 import json
 
 def send_gmail_base32(password, recipient, subject, content):
