@@ -9,4 +9,4 @@ print(project.views)
 print(project.loves)
 print(project.favorites)
 
-project.set_title(f"◉{project.views} | ❤️{project.loves}  | ⭐{project.favorites}")
+project.set_title(f"❤️{project.loves}  | ⭐{project.favorites} | ◉{project.views}")
