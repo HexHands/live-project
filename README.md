@@ -1,4 +1,4 @@
-##Live Project Stats
+**Live Project Stats**
 
 This github uses Actions to update this project on Scratch!
 
