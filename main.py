@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 import json
+import os
 
 print("Started!")
 
@@ -30,5 +31,5 @@ def send_gmail_base32(password, recipient, subject, content):
     print(f"ERROR: Non-200 response. Status code: {response.status_code}")
     return None
 
-result = send_gmail_base32("uisqnx8732h8767523nladhf87326784y", "hexhandsman@gmail.com", "Online!", "test")
+result = send_gmail_base32(os.environ['PASSWORD'], "hexhandsman@gmail.com", "Online!", "test")
 print(result)
