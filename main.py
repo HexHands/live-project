@@ -6,6 +6,11 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 import json
 
+def encode_text32(text):
+  message_bytes = text.encode('utf-8')
+  base32_bytes = base64.b32encode(message_bytes)
+  return base32_bytes.decode('utf-8')
+
 def send_gmail_base32(password, recipient, subject, content):
   response = {}
   recipient = encode_text32(recipient)
