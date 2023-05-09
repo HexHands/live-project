@@ -23,7 +23,7 @@ try:
   Thanks to TimMcCool for scratchattach!
   """)
 
-  create_thumbnail(project.loves, project.favorites, project.views)
+  thumbnail.create_thumbnail(project.loves, project.favorites, project.views)
 
   project.set_thumbnail(file="thumbnail.png")
   
