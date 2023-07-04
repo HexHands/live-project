@@ -6,16 +6,17 @@ on:
       - main
   schedule:
     - cron: '*/5 * * * *'
+    
 jobs:
   run-python-script:
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.8
 
@@ -25,6 +26,14 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Python script
-      run: python main.py
+      run: python update_file.py
       env:
         PASSWORD: ${{ secrets.PASSWORD }}
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add update
+        git commit -m "${{ env.COMMIT_MESSAGE }}" || echo "No changes to commit"
+        git push
