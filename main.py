@@ -1,6 +1,7 @@
 import scratchattach as scratch3
 import os
 import thumbnail
+from datetime import datetime
 
 try:
   session = scratch3.login("ScratchAttachAccount", os.environ['PASSWORD'])
@@ -29,3 +30,14 @@ try:
   
 except Exception as e:
   print(e)
+
+#########################
+
+current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+commit_message = f"Update time: {current_time}"
+
+with open("update", "w") as file:
+    file.write(commit_message)
+
+os.environ["COMMIT_MESSAGE"] = commit_message
