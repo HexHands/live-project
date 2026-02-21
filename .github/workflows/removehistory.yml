@@ -1,0 +1,33 @@
+name: Remove History
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every day at 11:50 PM UTC
+    - cron: '50 23 * * *'
+
+jobs:
+  clear-history:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git User
+      run: |
+        git config --global user.email "hexhandsman@gmail.com"
+        git config --global user.name "HexHands"
+
+    - name: Clear Commit History
+      run: |
+        rm -rf .git
+        git init
+        git add .
+        git commit -m "🔄"
+
+    - name: Force Push to GitHub
+      run: |
+        git remote add origin https://x-access-token:${{ secrets.LiveProjectHistory }}@github.com/${{ github.repository }}.git
+        git branch -M main
+        git push -f origin main
